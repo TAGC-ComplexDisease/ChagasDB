@@ -1,0 +1,54 @@
+{% extends 'base.html' %}  
+{% block content %}
+    {% load static %}
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
+            <div class="">
+                <img src="{% static 'img/logo1.png' %}" alt="logo" style="width: auto; max-height: 150px;"/>
+                <h1 class="text-5xl font-bold text-neutral-800 leading-tight inset-x-0 bottom-0">
+                    Welcome to <span class="text-orange-600">C</span>hagas<span class="text-orange-600">DB</span>!
+                </h1>
+            </div>
+            <p class="pt-3">
+                Chagas disease is a parasitical disease caused by <span class="italic">Trypanosoma cruzi</span>, a protozoan endemic from
+                south America. This parasite can infect many mammals, like domestic dogs, raccoons, or humans. It is
+                mostly asymptomatic, but it can lead to several complications in 30-40% of infected patients, notably cardiac, but also 
+                digestive or nervous. 
+                <br><br>
+                <span class="font-semibold text-orange-600">C</span><span class="font-semibold">hagas<span class="font-semibold text-orange-600">DB</span></span> is a manual-curated database regrouping published results referenced in Pubmed. For
+                now, it gathers all the molecules significantly associated with <span class="italic">T.cruzi</span> infection in different host species,
+                including genes, proteins, polymorphisms, hormones, or other chemical compounds. Facilitating access to
+                all this information is intended to improve the understanding of chagas disease, and thus the living
+                conditions of those affected. Simplified access to all this information is intended to improve the
+                understanding of chagas disease, and thus facilitate the search for a treatment.
+            </p>
+        </div>
+    </header>
+    {% load static %}
+    <main class="max-w-7xl mx-auto">
+        <div class="pt-3 pl-12 font-medium text-xl">
+            <span class="font-semibold text-orange-600">C</span><span class="font-semibold">hagas<span class="font-semibold text-orange-600">DB</span></span> allow you to search specific features in different organisms, infected with different <span class="italic">T.cruzi</span>
+            strains. 
+            <br>You can also download the whole database. Find a user guide in the <a class="text-blue-800 hover:underline" href="{% url 'features:guide' %}">Guide</a> tab.
+            <br><br>
+            
+            Citing <span class="font-semibold text-orange-600">C</span><span class="font-semibold">hagas<span class="text-orange-600 font-semibold">DB</span></span>:
+            <div class="ml-8 pt-3"><span class="ml-8 pt-12 italic font-medium">ChagasDB : 80 years of publicly available data on the molecular host response to Trypanosoma cruzi infection in a single database.</span></div>
+            <br>
+
+            <span class="font-semibold text-orange-600">C</span><span class="font-semibold">hagas<span class="text-orange-600 font-semibold">DB</span></span> GitHub:
+            <div class="ml-8 pt-3"><a href="" class="ml-8 pt-12 hover:underline ">https://github.com/TAGC-ComplexDisease/ChagasDB</a></div>
+            <br>
+
+            Papers citing <span class="font-semibold text-orange-600">C</span><span class="font-semibold">hagas<span class="font-semibold text-orange-600">DB</span></span>:
+            {# List of articles citing ChagasDB #}
+            <ul class="list-decimal pt-3 font-normal text-normal ml-8">
+                <li class="ml-8">Futur paper 1</li>
+                <li class="ml-8">Futur paper 2</li>
+                <li class="ml-8">Futur paper 3</li>
+
+
+            </ul>
+        </div>
+    </main>
+    {% endblock %}

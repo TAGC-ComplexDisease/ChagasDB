@@ -1,0 +1,74 @@
+<script>
+    $(document).ready(function(){
+        // Function to display number of rows selected across the whole table
+        $('input[name="boxes"]').click(function(){ 
+            if ($(this).attr('id')=='all_checkboxes'){
+                if ($(this).prop('checked')==true){  
+                    $("#selection_number").text({{ nb_objects }}); // It is displayed as an error but when integrated in a django page it works (subsequent false errors comes from that)
+                }
+                else{
+                    $("#selection_number").text(0);
+                }
+            }
+            else{
+                if ($(this).prop('checked')==true){  
+                    var currentValue = parseInt($("#selection_number").text(),10); // 10 value (radix) is to makes sure it is parsed as a decimal number.
+                    var newValue = currentValue + 1;
+                    $("#selection_number").text(newValue);
+                }
+                else{
+                    var currentValue = parseInt($("#selection_number").text(),10);
+                    var newValue = currentValue - 1;
+                    $("#selection_number").text(newValue);
+                }
+            }    
+        });
+
+        // Function to iterate on objects with the "toggle-vis" class on page load; check if they have a checked checkbox: if not, we hide the corresponding columns 
+        $('.toggle-vis').each(function(){ 
+            if ($(this).prop('checked')==false){  
+                var column = $(this).attr('data-column');
+                $('.'+column).hide();
+            }
+        });
+ 
+        // Function to dynamically display the table columns 
+        $('.toggle-vis').on('click', function(e){  // We take every element with the "toggle-vis" class.
+            var column = $(this).attr('data-column'); // Get the column API object (the ID)
+            if ($('.'+column).is(":visible")){ // We inverse the visibility attribute 
+                $('.'+column).hide();
+            }
+            else{
+                $('.'+column).show();
+            }
+        }); 
+
+        // Button class to display the popup with attributes columns to display in the table
+        $('button[class^="btnColumns"]').click(function(){
+            $("#divColumns").toggle();
+        });
+
+        // Function to toggle the displaying of a div when a button with the "btnFilter" class is clicked
+        $("#btnFilter").click(function(){ 
+            $("#divFilter").toggle();
+        });
+
+        // Function to toggle the displaying of the multiple choice fields selectors
+        $(".btnFilterClass").click(function(){ 
+            var name = $(this).attr('filter');
+            $("#Div_"+name).toggle();
+        });
+
+        // Function to toggle the checking/unchecking of every checkbox 
+        $('#all_checkboxes').change(function(){ 
+            if ($(this).attr('used')=='no'){  
+                $('.to_check').prop('checked',true);
+                $(this).attr('used','yes');
+            }
+            else{
+                $('.to_check').prop('checked',false);
+                $(this).attr('used','no');
+            } 
+        }); 
+    });
+</script>

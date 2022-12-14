@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr_FR">
+
+    <div class="flex flex-col h-screen justify-between">
+
+        <head>
+            {% load static %}      
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <title>ChagasDB</title>
+
+            {# Fonts #}
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+            <script src="https://kit.fontawesome.com/0d32c92117.js" crossorigin="anonymous"></script>
+            {# Styles #}    
+            <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+            
+            {# <script src="https://cdn.tailwindcss.com"></script> #}   {# Tailwind CDN to develop, before going production, crawl all used classes and go to https://play.tailwindcss.com/ to get relevant CSS file #}
+            
+            {# Scripts #}
+            <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+        </head>
+
+        <body class="mb-auto bg-gray-50 font-sans antialiased">
+            <div class="bg-gray-50 max-w-screen">
+                <nav class="bg-neutral-800 border-b border-gray-100 mx-auto sticky top-0 z-50">
+                    {# Primary Navigation Menu #}
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-center h-[4rem]">
+
+                            <div class="flex">  
+                                <div class="pt-1 text-white mx-auto">
+                                    <img src="{% static 'img/logo1.png' %}" alt="logo" style="width: auto; max-height: 50px;"/>
+                                </div>
+                                {# Navigation Links #}
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-gray-300">
+                                    {% url 'features:home' as url %}
+                                    <button class="border-transparent {% if request.path == url %}border-orange-600 text-white{% endif %} inline-flex items-center px-1 pt-1 border-b-4 text-sm font-medium leading-5  hover:text-gray-600 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out text-xl">
+                                        <a href="{{ url }}">Home</a>
+                                    </button>
+                                    {% url 'features:guide' as url1 %}
+                                    <button class="border-transparent {% if request.path == url1 %}border-orange-600 text-white{% endif %} inline-flex items-center px-1 pt-1 border-b-4 text-sm font-medium leading-5 hover:text-gray-600 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out text-xl">
+                                        <a href="{{ url1 }}">Guide</a>
+                                    </button>
+                                    {% url 'features:database' as url2 %}
+                                    <button class="border-transparent {% if request.path == url2 %}border-orange-600 text-white{% endif %} inline-flex items-center px-1 pt-1 border-b-4 text-sm font-medium leading-5 hover:text-gray-600 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out text-xl">
+                                        <a href="{{ url2 }}">Explore database</a>
+                                    </button>
+                                    {% url 'features:download' as url3 %}
+                                    <button class="border-transparent {% if request.path == url3 %}border-orange-600 text-white{% endif %} inline-flex items-center px-1 pt-1 border-b-4 text-sm font-medium leading-5 hover:text-gray-600 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out text-xl">
+                                        <a href="{{ url3 }}">Download</a>
+                                    </button>
+                                    {% url 'features:submit' as url4 %}
+                                    <button class="border-transparent {% if request.path == url4 or 'send_mail_with_file' in request.path %}border-orange-600 text-white{% endif %} inline-flex items-center px-1 pt-1 border-b-4 text-sm font-medium leading-5 hover:text-gray-600 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out text-xl">
+                                        <a href="{{ url4 }}">Submit</a>
+                                    </button>
+                                    {% url 'features:about' as url5 %}
+                                    <button class="border-transparent {% if request.path == url5 %}border-orange-600 text-white{% endif %} inline-flex items-center px-1 pt-1 border-b-4 text-sm font-medium leading-5 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out text-xl">
+                                        <a href="{{ url5 }}">About</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>            
+                {% block content %}
+                {% endblock %}
+            </div>
+        </body>
+    
+        <footer class="bg-white pt-2 border-t-2">
+            <div class="pt-1 pb-2 max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 text-neutral-800">
+                <div class="grid grid-cols-5 justify-center">
+                    {# Logo #}
+                    <a class="mx-auto" href="https://www.inserm.fr/" target="_blank">
+                        <img src="{% static 'img/inserm.png' %}" alt="inserm_pic" style="width: auto; max-height: 90px;" />
+                    </a>
+                    <a class="mx-auto" href="https://www.fm.usp.br/fmusp/portal/" target="_blank">
+                        <img src="{% static 'img/usr.png' %}" alt="usr_pic"  style="width: auto; max-height: 90px;">
+                    </a>
+                    <a class="mx-auto" href="https://tagc.univ-amu.fr/" target="_blank">
+                        <img src="{% static 'img/tagc.png' %}" alt="tagc_pic" style="width: auto; max-height: 90px;" />
+                    </a>
+                    <a class="mx-auto" href="https://www2.incor.usp.br/sites/incor2022/" target="_blank">
+                        <img src="{% static 'img/InCor.png' %}" alt="InCor_pic"  style="width: auto; max-height: 90px;">
+                    </a>
+                    <a class="mx-auto" href="https://www.univ-amu.fr/" target="_blank">
+                        <img src="{% static 'img/AMU.png' %}" alt="amu_pic"  style="width: auto; max-height: 90px;" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</html>
