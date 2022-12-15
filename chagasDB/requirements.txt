@@ -1,4 +1,0 @@
-django==4.0.7
-django-filter==21.1
-whitenoise==6.2.0
-typer==0.4.1
