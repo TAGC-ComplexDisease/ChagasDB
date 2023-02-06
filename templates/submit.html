@@ -1,0 +1,76 @@
+{% extends 'base.html' %}  
+{% block content %}
+    {% load static %}
+
+    {# Messages alert #}
+    {% if ctxt_message %}
+        <script>
+            alert('{{ ctxt_message }}');
+        </script>
+    {% endif %}
+
+    {# Page Heading #}
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-2xl text-neutral-800 leading-tight">
+                Submit data
+            </h2>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto">
+        <div class="text-xl py-5 px-10">
+            If you posses relevant published data please don't hesitate to send it to us with the associated template by filling the fields below.
+            <br><br>
+            <div class="mx-auto">
+                Get the database template here : 
+                <button class="mb-2 mt-1 px-1 bg-orange-700 hover:bg-orange-600 text-white text-center text-base font-semibold rounded-lg ">
+                    <a href="{% static 'other/ChagasDB_template.csv' %}" class="block px-1 py-2 transition ease-in duration-200 flex items-center shadow-md">
+                        <span>Download template</span>
+                        <span class="mx-auto pr-1">
+                            <svg class="fill-current w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+                            </svg>
+                        </span>
+                    </a>
+                </button>
+            </div>
+
+            <form action="/send_mail_with_file" method="post" enctype="multipart/form-data" class="justify-center flex max-w-screen pt-12">
+                {% csrf_token %}
+                <div class="max-w-screen grid grid-cols-3">
+                    <span class="col-span-3 pb-3 text-left italic text-sm text-gray-600">Confidentiality is kept.</span>
+                    <span>Submitter name:</span>
+                    <span>Submitter email:</span>
+                    <span>File (25Mo maximum):</span>
+                    <div class="form-group pr-3">
+                        <div class="relative">
+                            <input type="text" name="contact_name" class="form-control rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent" placeholder="Your name"/>
+                        </div>
+                    </div>
+                    <div class="form-group pr-3">
+                        <div class="relative">
+                            <input type="text" name="contact_email" class="form-control rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent" placeholder="Your email"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="relative">
+                            <input type="file" name="file" class="form-control rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"/>
+                        </div>
+                    </div>
+                    <span class="pt-3 col-span-3">Message (optionnal):</span>
+                    <div class="form-group col-span-3">
+                        <div class="relative">
+                            <textarea type="text" name="contact_message" class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent" placeholder="Enter your message" rows="5" cols="40"></textarea>
+                        </div>
+                    </div>
+                    <div class="pt-3 w-min text-right col-span-3 form-group">
+                        <button type="submit" class="py-2 px-4 bg-orange-700 hover:bg-orange-600 text-white w-full text-center text-base font-semibold shadow-md rounded-lg">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+{% endblock %}
