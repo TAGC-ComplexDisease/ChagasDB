@@ -1,0 +1,594 @@
+{% extends 'base.html' %}  
+{% block content %}
+    {% load static %}
+    {# Page Heading #}
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-2xl text-neutral-800 leading-tight">
+                Understanding <span class="text-orange-600">C</span>hagas<span class="text-orange-600">DB</span>
+            </h2>
+        </div>
+    </header>
+    <script>
+        $(document).ready(function(){
+            $('.btnDisplay').on('click', function(e){ 
+                $('.btnDisplay').removeClass( "text-orange-700" ).addClass( "text-stone-800" );
+                $(this).removeClass( "text-stone-800" ).addClass( "text-orange-700" );
+                var section = $(this).attr('section'); 
+                $('.to_hide').hide();
+                $('#'+section).show();
+            }); 
+        });
+    </script>
+    
+    <main class="max-w-7xl mx-auto"> 
+        <div class="py-5 px-10">
+            <div class="block bg-white shadow rounded mb-3">
+                <div class="flex justify-center px-3 text-normal font-semibold">
+                    <button section="intro" class="btnDisplay focus:outline-none text-orange-700  hover:text-orange-700  pt-3 rounded-t mr-12 cursor-pointer">
+                        <div class="flex items-center mb-3">
+                            <span class="ml-0 ">Introduction</span>
+                        </div>
+                        <div class="w-full h-1 bg-orange-700 rounded-t-md"></div>
+                    </button>
+                    <button section="description" class="btnDisplay focus:outline-none text-stone-800 hover:text-orange-700  pt-3 rounded-t mr-12 cursor-pointer">
+                        <div class="flex items-center mb-3">
+                            <span class="ml-0 ">Database description</span>
+                        </div>
+                        <div class="w-full h-1 bg-orange-700 rounded-t-md"></div>
+                    </button>
+                    <button section="user" class="btnDisplay focus:outline-none text-stone-800 hover:text-orange-700 pt-3 rounded-t mr-12 cursor-pointer">
+                        <div class="flex items-center mb-3">
+                            <span class="ml-0 ">Database userguide</span>
+                        </div>
+                        <div class="w-full h-1 bg-orange-700 rounded-t-md"></div>
+                    </button>
+                    <button section="submission" class="btnDisplay focus:outline-none text-stone-800 hover:text-orange-700  pt-3 rounded-t mr-12 cursor-pointer">
+                        <div class="flex items-center mb-3">
+                            <span class="ml-0 ">Database submission</span>
+                        </div>
+                        <div class="w-full h-1 bg-orange-700 rounded-t-md"></div>
+                    </button> 
+                </div>
+            </div>
+
+            <div id="intro" class="to_hide pt-3">
+                <span class="mt-16 font-bold text-2xl text-neutral-800 leading-tight">I. Introduction</span>
+                <p><span class="font-semibold text-orange-600">C</span><span class="font-semibold">hagas<span class="text-orange-600">DB</span></span> gathers all the molecules significantly associated with <span class="italic">T.cruzi</span> infection. All this information have
+                    been gathered by hand, by listing the papers referenced under &quot;Chagas disease&quot; in Pubmed, since 1945.
+                    For now, only the host-infected dysregulations were considering, discarding the genetic modified host,
+                    stimulated cells, or vector analysis.
+                    <br><br>
+                    Actually, a total of 24526 features were associated with Chagas disease, including gene, protein, methylation,
+                    hormone, electrolytes or chemical molecules expressions, as well as polymorphisms, haplogroups, protein
+                    activity or alternative splicing. 5 different organisms were studied: <span class="italic">Homo sapiens</span>, <span class="italic">Mus musculus</span>, <span class="italic">Rattus norvegicus</span>, <span class="italic">Canis lupus familiaris</span> and <span class="italic">Ovis aries</span> (see table below).
+                </p>
+                <div class="flex justify-center">
+                    <table class="mt-1 bg-white shadow rounded-lg ">
+                        <thead class="justify-center">
+                            <tr>
+                                <th class="border p-4  whitespace-nowrap font-semibold text-orange-700">
+                                </th>
+                                <th class="border p-4  whitespace-nowrap font-semibold italic text-orange-700">
+                                    Homo sapiens
+                                </th>
+                                <th class="border p-4  whitespace-nowrap font-semibold italic text-orange-700">
+                                    Mus musculus
+                                </th>
+                                <th class="border p-4  whitespace-nowrap font-semibold italic text-orange-700">
+                                    Rattus norvegicus
+                                </th>
+                                <th class="border p-4  whitespace-nowrap font-semibold italic text-orange-700">
+                                    Canis lupus familiaris
+                                </th>
+                                <th class="border p-4  whitespace-nowrap font-semibold italic text-orange-700">
+                                    Ovis aries
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="justify-center text-center">
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    RNA
+                                </td>
+                                <td class="border p-4 ">
+                                    11954
+                                </td>
+                                <td class="border p-4 ">
+                                    5885
+                                </td>
+                                <td class="border p-4 ">
+                                    289
+                                </td>
+                                <td class="border p-4 ">
+                                    11
+                                </td>
+                                <td class="border p-4 ">
+                                    3
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Alternative splicing
+                                </td>
+                                <td class="border p-4 ">
+                                    1778
+                                </td>
+                                <td class="border p-4 ">
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Methylation
+                                </td>
+                                <td class="border p-4 ">
+                                    11169
+                                </td>
+                                <td class="border p-4 ">
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    TFBS
+                                </td>
+                                <td class="border p-4 ">
+                                    30
+                                </td>
+                                <td class="border p-4 ">
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Polymorphism
+                                </td>
+                                <td class="border p-4 ">
+                                    49
+                                </td>
+                                <td class="border p-4 ">
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Haplogroup
+                                </td>
+                                <td class="border p-4 ">
+                                    6
+                                </td>
+                                <td class="border p-4 ">
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Protein
+                                </td>
+                                <td class="border p-4 ">
+                                    339
+                                </td>
+                                <td class="border p-4 ">
+                                    56
+                                </td>
+                                <td class="border p-4 ">
+                                    15
+                                </td>
+                                <td class="border p-4 ">
+                                    3
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Protein activity
+                                </td>
+                                <td class="border p-4 ">
+                                    7
+                                </td>
+                                <td class="border p-4 ">
+                                    7
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Chemical molecule
+                                </td>
+                                <td class="border p-4 ">
+                                    49
+                                </td>
+                                <td class="border p-4 ">
+                                    2
+                                </td>
+                                <td class="border p-4 ">
+                                    5
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Electrolyte
+                                </td>
+                                <td class="border p-4 ">
+                                    1
+                                </td>
+                                <td class="border p-4 ">
+                                    2
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700">
+                                <td class="border p-4  font-semibold text-left">
+                                    Hormone
+                                </td>
+                                <td class="border p-4 ">
+                                    8
+                                </td>
+                                <td class="border p-4 ">
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                                <td class="border p-4 ">
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                
+            <div id="description" style="display:none" class="to_hide pt-3">
+                <span class="mt-16 font-bold text-2xl text-neutral-800 leading-tight">II. Database description</span>
+                <div class="mt-3 flex flex-col">
+                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="overflow-hidden shadow rounded-lg">
+                                <table class="min-w-full border text-left">
+                                    <tbody>
+                                    <tr class="bg-gray-100 border-b" >
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Feature name</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            Feature official name according to databases (see “<a class="font-medium hover:text-orange-700 hover:underline" href="#annotation">Features annotation</a>“ section).
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Feature description</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 ">
+                                            Description about the features which provide some
+                                            details according to databases (see “<a class="font-medium hover:text-orange-700 hover:underline" href="#annotation">Features annotation</a>“ section).
+                                            In some case, no description is available.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Feature name in papier</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            Feature name provided by authors. May be different to the official name.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Feature ID</td>
+                                        <td class="text-gray-900 font-light px-3 py-4 ">
+                                            Feature ID according to databases (see “<a class="font-medium hover:text-orange-700 hover:underline" href="#annotation">Features annotation</a>“ section). It may be Ensembl ID for
+                                            genes or proteins, cg ID for methylation site or rs
+                                            ID for polymorphisms.
+                                            In some case, no ID is available.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b" >
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Feature type</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            Type of the feature in the relative paper.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Feature variation</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4">
+                                            Some additional information about the analysis
+                                            performed on the relative feature. It may be a fold
+                                            change, or others kind of dysregulation.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Phenotype 1</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            Host phenotype associated with the relative feature dysregulation (see “<a class="font-medium hover:text-orange-700 hover:underline" href="#phenotypes">Phenotypes available</a>“ section).
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Description phenotype 1</td>
+                                        <td class="text-gray-900 font-light px-3 py-4 ">
+                                            Additional information on the phenotype of interest.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b" >
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Phenotype 2</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            Host phenotype used as control in the relative
+                                            study. It may be identical to Phenotype 1 when the
+                                            analysis was focus on association between two
+                                            features.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Description phenotype 2</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 ">
+                                            Additional information on the control phenotype
+                                            (see “<a class="font-medium hover:text-orange-700 hover:underline" href="#phenotypes">Phenotypes available</a>“ section).
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Tissue</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            Tissue or cells in which the feature of interest was studied.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Tissue description</td>
+                                        <td class="text-gray-900 font-light px-3 py-4 ">
+                                            Additional information on the tissue when provided.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b" >
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Experimental</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            Indicate if the analysis is experimental or
+                                            computational.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Method</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 ">
+                                            Name or type of method employed to analyze the
+
+                                            feature of interest.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Interaction observed</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 border-r">
+                                            Indicate if an interaction/association was observed between the feature of interest and another feature.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Name of the interactive feature</td>
+                                        <td class="text-gray-900 font-light px-3 py-4 ">
+                                            If an interaction is observed between the feature of interest and another feature, indicate its name.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b" >
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">ID of the interactive feature</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            If an interaction is observed between the feature of
+                                            interest and another feature, indicate its ID.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Type of the interactive feature</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 ">
+                                            If an interaction is observed between the feature of
+                                            interest and another feature, indicate its type.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Organism</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            Name of the species in which the analysis was carried out.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Population</td>
+                                        <td class="text-gray-900 font-light px-3 py-4 ">
+                                            Additional information on the population of interest.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b" >
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r"><span class="italic">T.cruzi</span> strain</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4  border-r">
+                                            If known, provide the strain of <span class="italic">T.cruzi</span> having
+
+                                            infected the host (see “<a class="font-medium hover:text-orange-700 hover:underline" href="#strain"><span class="italic">T.cruzi</span> strains</a>“ section).
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Paper PMID</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 ">
+                                            Provide the paper Pubmed ID.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Paper DOI</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 border-r">
+                                            Provide the paper DOI.
+                                        </td>
+                                        <td class=" text-orange-700 font-medium px-3 py-4 whitespace-nowrap border-r">Paper title</td>
+                                        <td class="text-gray-900 font-light px-3 py-4 ">
+                                            Provide the paper title.
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b" >
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-orange-700 border-r">Paper publication date</td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 ">
+                                            Provide the paper publication date.
+                                        </td>
+                                        <td class="px-3 py-4 whitespace-nowrap  font-medium text-gray-900"></td>
+                                        <td class=" text-gray-900 font-light px-3 py-4 ">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="annotation" class="mt-4 font-semibold text-xl text-neutral-800 leading-tight ">1. Features annotation</div>
+                <p>The features were annotated using different databases, depending on the species. For all of them,
+                    <a href="https://www.ensembl.org/index.html" target="_blank_" class="text-blue-800 hover:underline font-semibold">Ensembl</a> database was used. For <span class="italic">Homo sapiens</span> specifically, <a href="https://www.genenames.org/" target="_blank_" class="text-blue-800 hover:underline font-semibold">HGNC</a>
+                    and <a href="https://www.genecards.org/" target="_blank_" class="text-blue-800 hover:underline font-semibold">GeneCards</a> helped to identify some alias.
+                    <a href="https://www.mirbase.org/" target="_blank_" class="text-blue-800 hover:underline font-semibold">miRBase</A> and <a href="https://lncipedia.org/" target="_blank_" class="text-blue-800 hover:underline font-semibold">LNCpedia</a> were used for ncRNAs. The <a href="http://www.informatics.jax.org/" target="_blank_" class="text-blue-800 hover:underline font-semibold">MGI</a>
+                    and <a href="https://rgd.mcw.edu/" target="_blank_" class="text-blue-800 hover:underline font-semibold">RGD</a> were employed for <span class="italic">Mus musculus</span> and
+                    <span class="italic">Rattus norvegicus</span>, respectively.
+                </p>
+
+                <div id="phenotypes" class="mt-4 font-semibold text-xl text-neutral-800 leading-tight ">2. Phenotypes available</div>
+                <p class="pb-3">
+                    For now, 19 phenotypes are available in <span class="font-semibold text-orange-600">C</span><span class="font-semibold">hagas<span class="text-orange-600">DB</span></span>: 5 as negative control (<span class="italic">T.cruzi</span> uninfected patients) and
+                    14 as cases, with different forms of Chagas disease. 
+                    <br>
+                    All phenotypes are listed below :
+                </p>
+                
+                <div class="grid grid-cols-5 grid-rows-{20} h-max font-medium mx-auto text-left shadow rounded-lg">
+                    <span class="col-start-1 col-span-1 row-start-1 row-span-1 font-semibold text-orange-700 text-center border-t-2 border-l"><span></span></span>
+                    <span class="col-start-2 col-span-4 row-start-1 row-span-1 font-semibold text-orange-700 text-center border-t-2 border-r border-b"><span>Phenotype description</span></span>
+                    <div class="col-start-1 col-span-1 row-start-2 row-span-5 font-semibold text-orange-700 border flex justify-center text-center items-center border-t-2">
+                        <span>Non-infected phenotypes</span>
+                    </div>
+                    <span class="col-start-2 col-span-4 row-start-2 row-span-1  pl-3 border">Healthy</span>
+                    <div class="col-start-2 col-span-1 row-start-3 row-span-4 items-center flex justify-center border">
+                        <span class="w-full text-left pl-3">Cardiomyopathy</span>
+                    </div>
+                    <span class="col-start-3 col-span-3 row-start-3 row-span-1  border pl-3">Non chagasic cardiomyopathy</span>
+                    <span class="col-start-3 col-span-3 row-start-4 row-span-1 border pl-3">Non chagasic dilated cardiomyopathy</span>
+                    <span class="col-start-3 col-span-3 row-start-5 row-span-1 border pl-3">Idiopathic dilated cardiomyopathy</span>          
+                    <span class="col-start-3 col-span-3 row-start-6 row-span-1 border pl-3">Ischemic cardiomyopathy</span>
+                    
+                    <div class="col-start-1 col-span-1 row-start-7 row-[span_14_/_span_14] font-semibold text-orange-700 border flex justify-center text-center items-center">
+                        <span><span class="italic">T.cruzi</span> infected phenotype</span>
+                    </div>
+
+                    <span class="col-start-2 col-span-4 row-start-7 row-span-1 border pl-3">Chagas</span>
+                    <span class="col-start-2 col-span-1 row-start-{8} row-span-1 border pl-3">Acute stage</span>
+                    <span class="col-start-3 col-span-3 row-start-{8} row-span-1 border pl-3">Acute</span>
+
+                    <div class="col-start-2 col-span-1 row-start-{9} row-[span_12_/_span_12] items-center flex justify-center text-center border">
+                        <span class="w-full text-left pl-3">Chronic stage</span>
+                    </div>
+
+                    <span class="col-start-3 col-span-3 row-start-{9} row-span-1 border pl-3">Chronic</span>
+                    <div class="col-start-3 col-span-1 row-start-{10} row-span-2 items-center flex justify-center text-center border">
+                        <span class="w-full text-left pl-3">Asymptomatic</span>
+                    </div>
+                    <span class="col-start-4 col-span-2 row-start-{10} row-span-1 border pl-3">Asymptomatic</span>
+                    <span class="col-start-4 col-span-2 row-start-{11} row-span-1 border pl-3">Indeterminate</span>
+                    <div class="col-start-3 col-span-1 row-start-{12} row-[span_7_/_span_7] items-center flex justify-center text-center border">
+                        <span class="w-full text-left pl-3">Symptomatic</span>
+                    </div>
+
+                    <div class="col-start-4 col-span-1 row-start-{12} row-span-4 items-center flex justify-center text-center border">
+                        <span class="w-full text-left pl-3">Cardiac</span>
+                    </div>
+                    <span class="col-start-5 col-span-1 row-start-{12} row-span-1 border pl-3">Cardiac</span>
+                    <span class="col-start-5 col-span-1 row-start-{13} row-span-1 border pl-3">Moderate cardiac</span>
+                    <span class="col-start-5 col-span-1 row-start-{14} row-span-1 border pl-3">Mild cardiac</span>
+                    <span class="col-start-5 col-span-1 row-start-{15} row-span-1 border pl-3">Severe cardiac</span>
+                    <span class="col-start-4 col-span-2 row-start-{16} row-span-1 border pl-3">Digestive</span>
+                    <span class="col-start-4 col-span-2 row-start-{17} row-span-1 border pl-3">Cardiodigestive</span>
+                    <span class="col-start-4 col-span-2 row-start-{18} row-span-1 border pl-3">Mixed</span>
+                    <span class="col-start-3 col-span-3 row-start-{19} row-span-1 border pl-3">Congenital infection</span>
+                    <span class="col-start-3 col-span-3 row-start-{20} row-span-1 border pl-3">Heart transplant chagasic patient</span> 
+                </div>
+        
+                <div id="strain" class="mt-4 font-semibold text-xl text-neutral-800 leading-tight ">3. <span class="italic">T.cruzi</span> strains</div>
+                <p class="pb-3">
+                    24  <span class="italic">Trypanosoma cruzi</span> strains were included in the database, corresponding to 3 Discrete Typing Units
+                    (DTUs) :
+                    <ul class="list-disc pt-1 font-normal text-normal ml-8">
+                        <li class="ml-8">TcI : Brazil, Colombia, G, Sylvio, SylvioX10/4, AC, CA-I, Col1.8G2, K98 and Type1.</li>
+                        <li class="ml-8">TcII : ABC, Berenice-78, Tulahuén, Y, JG, Lucky and SGO-Z12.</li>
+                        <li class="ml-8">TC VI : CL-14, CL-Brener, Cvd, Q501/3, Tehuantepec, RA and VD.</li>
+                    </ul>
+                </p>
+            </div>
+           
+            
+            <div id="user" style="display:none" class="to_hide pt-3">
+                <span class="mt-16 font-bold text-2xl text-neutral-800 leading-tight">III. Database userguide</span>
+                <p>On the Database page, you have the possibility to manually search some information. You can enter a
+                    feature name, ID or description in the “Search” bar tool, and the different corresponding features will
+                    appears. By checking the boxes next to the feature name, you can download the information for your
+                    features of interest.
+                </p>
+
+                <img src="{% static 'img/Userguide_1.png' %}" alt="Userguide1" style="width: 100%; max-height: 100%;"/>
+                <br>
+
+                <p>You have also the opportunities to apply some filters by clicking on the “Filter” buttons. It will allow you to
+                    restrains your research to some phenotypes, T.cruzi strains, tissue, or others fields of interest.
+                </p>
+
+                <img src="{% static 'img/Userguide_2.png' %}" alt="Userguide2" style="width: 100%; max-height:  100%;"/>
+                <br>
+
+                <p>To provide a clear display of the results, some columns are automatically masked. You can display the
+                    columns of interest by clicking on the “Display” button, and check the boxes desired.
+                </p>
+
+                <img src="{% static 'img/Userguide_3.png' %}" alt="Userguide3" style="width: 100%; max-height:  100%;"/>
+            </div>
+     
+            <div id="submission" style="display:none" class="to_hide pt-3">
+                <span class="mt-16 font-bold text-2xl text-neutral-800 leading-tight">IV. Database submission</span>
+                <p><span class="font-semibold text-orange-600">C</span><span class="font-semibold">hagas<span class="text-orange-600">DB</span></span> team updates the database periodically, to provide all interesting results to the community.
+                    However, you have also the opportunity to contribute to this research work. To do so, simply click on the
+                    &quot;Submit&quot; page and download the submission template. Once completed, you can submit it directly on 
+                    the same page, by specifying your name and your email address. Our team will update the database with your data. 
+                    You can also contact us if some information of one of your study are missing, or incomplete, and we will correct 
+                    it in the database.
+                </p>
+
+                <img src="{% static 'img/Userguide_4.png' %}" alt="Userguide4" style="width: 100%; max-height:  100%;"/>
+            </div>
+        </div>
+    </main>
+
+
+
+{% endblock %}
